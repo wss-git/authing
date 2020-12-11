@@ -1,0 +1,32 @@
+AuthingDemo:
+  Component: fc
+  Provider: alibaba
+  Extends:
+    deploy:
+      - Hook: npm install --production
+        Path: .
+        Pre: true
+  Properties:
+    Region: cn-shenzhen
+    Service:
+      Name: Authing
+      Description: 欢迎使用ServerlessTool
+    Function:
+      Name: Authing
+      Description: 这是一个 Authing 的测试案例
+      CodeUri: ./
+      Handler: index.handler
+      MemorySize: 128
+      Runtime: nodejs10
+      Timeout: 30
+      Triggers:
+        - Name: TriggerNameHttp
+          Type: HTTP
+          Parameters:
+            AuthType: ANONYMOUS
+            Methods:
+              - GET
+              - POST
+              - PUT
+            Domains:
+              - Domain: AUTO

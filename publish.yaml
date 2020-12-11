@@ -1,0 +1,21 @@
+Type: Application
+Name: authing
+Provider:
+  - Alibaba
+Version: 0.0.1
+Description:
+  zh: 简短的描述/介绍
+  en: English
+HomePage: https://github.com/wss-git/authing
+Tags:
+  - zh: 部署函数
+    en: English
+  - zh: 部署组件
+    en: English
+Category: 基础云服务
+Service:
+  - Name: 函数计算
+    Runtime: Nodejs10
+    Authorities:
+      - zh: 创建函数 # 所需要的权限
+        en: English
