@@ -9,7 +9,7 @@ const init = async () => {
 }
 
 module.exports.handler = async (req, res, context) => {
-  req.body = await getRawBody(req); // 本行代码一定要放到其他 await 代码之前
+  req.body = await getRawBody(req);
   await init();
   server.httpProxy(req, res, context);
 };

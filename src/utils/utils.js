@@ -13,7 +13,7 @@ oidcConfig.Stage = oidcConfig.Stage || 'release';
 
 const genRedirectUri = (
   host,
-  callbackRoute = 'code2token',
+  callbackRoute = 'code-exchange-token',
   protocol = 'http'
 ) => `${protocol}://${host}/${oidcConfig.Stage}/${callbackRoute}/`;
 const genCookie = (
@@ -31,8 +31,7 @@ const genCookie = (
   }${domain === '' ? '' : 'domain' + domain + ';'}`;
 }
 
-// 用code换取token信息
-async function code2Token(code, host) {
+async function codeExchangeToken(code, host) {
   let code2tokenResponse;
   let data = {};
   try {
@@ -78,5 +77,5 @@ module.exports = {
   oidcConfig,
   generateLoginUri,
   genCookie,
-  code2Token
+  codeExchangeToken
 }

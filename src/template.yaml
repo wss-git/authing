@@ -10,7 +10,7 @@ AuthingDemo:
     Region: cn-shenzhen
     Service:
       Name: Authing
-      Description: 欢迎使用ServerlessTool
+      Description: 欢迎使用 ServerlessTool
     Function:
       Name: Authing
       Description: 这是一个 Authing 的测试案例

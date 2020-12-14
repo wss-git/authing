@@ -26,7 +26,8 @@ function login(req, res) {
   res.redirect(redirect_uri);
 }
 
-app.get(`/${stage}/index?/`, async (req, res) => {
+app.get(`/${stage}/index?/`, index)
+async function index(req, res) {
   const access_token = req.cookies['token'];
   const toLogin = () => {
     const redirect_uri = utils.generateLoginUri(req.headers.host);
@@ -45,15 +46,15 @@ app.get(`/${stage}/index?/`, async (req, res) => {
   } catch (error) {
     res.status(401).send(error.message);
   }
-})
+}
 
-app.get(`/${stage}/code2token?/`, async (req, res) => {
+app.get(`/${stage}/code-exchange-token?/`, async (req, res) => {
   const { headers, query } = req;
 
   if (!query.code) {
     res.send(JSON.stringify({ query: '', headers: headers }, null, '    '));
   } else {
-    const token = await utils.code2Token(query.code, headers.host);
+    const token = await utils.codeExchangeToken(query.code, headers.host);
     if (token && token.access_token) {
       res.setHeader('Content-Type', headers['Content-Type'] || 'text/plain');
       res.setHeader('Set-Cookie', utils.genCookie('token', token.access_token));
@@ -64,19 +65,6 @@ app.get(`/${stage}/code2token?/`, async (req, res) => {
       res.send(JSON.stringify(token, null, '    '));
     }
   }
-});
-
-app.get(`/${stage}/checktoken?/`, (req, res) => {
-  res.send('checktoken')
-});
-
-app.get(`/${stage}/refreshtoken?/`, (req, res) => {
-  res.send('refreshToken')
-});
-
-
-app.get(`/${stage}/userinfo`, (req, res) => {
-  res.send('getUserInfoByAccessToken')
 });
 
 module.exports = app;

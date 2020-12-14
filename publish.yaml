@@ -2,7 +2,7 @@ Type: Application
 Name: authing
 Provider:
   - Alibaba
-Version: 0.0.1
+Version: 0.0.2
 Description:
   zh: 简短的描述/介绍
   en: English
@@ -15,7 +15,7 @@ Tags:
 Category: 基础云服务
 Service:
   - Name: 函数计算
-    Runtime: Nodejs10
+    Runtime: Node.JS
     Authorities:
       - zh: 创建函数 # 所需要的权限
         en: English
