@@ -2,20 +2,20 @@ Type: Application
 Name: authing
 Provider:
   - Alibaba
-Version: 0.0.2
+Version: 0.0.4
 Description:
-  zh: 简短的描述/介绍
-  en: English
+  zh: 基于Serverless架构的Authing应用
+  en: Authoring application based on serverless architecture
 HomePage: https://github.com/wss-git/authing
 Tags:
   - zh: 部署函数
-    en: English
+    en: Deploy Funtion
   - zh: 部署组件
-    en: English
+    en: Deploy Component
 Category: 基础云服务
 Service:
   - Name: 函数计算
     Runtime: Node.JS
     Authorities:
       - zh: 创建函数 # 所需要的权限
-        en: English
+        en: Create Function
